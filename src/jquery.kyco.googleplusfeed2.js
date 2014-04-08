@@ -297,7 +297,7 @@
 		}
 	};
 
-	$.fn.kycoGooglePlusFeed = function(method) {
+	$.fn.kycoGooglePlusFeed2 = function(method) {
 		// Check if browser supports Array.forEach() method, if it doesn't mimic that functionality,
 		// implementation from here: http://stackoverflow.com/questions/2790001/fixing-javascript-array-functions-in-internet-explorer-indexof-foreach-etc
 		if (!('forEach' in Array.prototype)) {
@@ -321,7 +321,7 @@
 		} else if (typeof method === 'object' || !method) {
 			return methods.init.apply(this, arguments);
 		} else {
-			$.error('Method ' +  method + ' does not exist on jQuery.kycoGooglePlusFeed');
+			$.error('Method ' +  method + ' does not exist on jQuery.kycoGooglePlusFeed2');
 		}
 	};
 })(jQuery);
