@@ -2,7 +2,11 @@ jquery.kyco.googleplusfeed2
 ===========================
 ####Version: 2.0.0
 
-The best Google+ feed widget out there!
+The best Google+ feed widget out there which actually works!
+
+v2 no longer makes use of third party plugins or tools to retrieve the Google+ data. This plugin hooks directly into the Google+ API to give you the best Google+ feed widget out there.
+
+Take a look at the [demo](http://www.kycosoftware.com/projects/demo/googleplus-feed-widget-2).
 
 How to install
 --------------
