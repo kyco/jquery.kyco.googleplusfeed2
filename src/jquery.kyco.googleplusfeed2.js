@@ -155,7 +155,7 @@
 						newStr += '<div class="feed_post post_' + (e + 1) + '">';
 						newStr += '<span title="' + formatTime(e, true) + '">' + settings.lang.shared + formatTime(e) + '</span>';
 						newStr += '<p>' + feedEntries[e].content + '</p>';
-						newStr += '<a href="' + feedEntries[e].link + '" target="_blank">' + settings.lang.viewPost + '</a>';
+						newStr += '<a href="' + feedEntries[e].url + '" target="_blank">' + settings.lang.viewPost + '</a>';
 						newStr += '</div>';
 
 						return newStr;
