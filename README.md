@@ -4,14 +4,12 @@ jquery.kyco.googleplusfeed2
 
 The best Google+ feed widget out there!
 
-v2 no longer makes use of third party plugins or tools to retrieve the Google+ data. This plugin hooks directly into the Google+ API to give you the best Google+ feed widget out there.
-
 Take a look at the [demo](http://www.kycosoftware.com/projects/demo/googleplus-feed-widget-2).
 
 How to install
 --------------
 
-Download the js file and include it in your head after including jquery:
+Download the js file and include it after including jquery:
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="jquery.kyco.googleplusfeed2.min.js"></script>
@@ -21,7 +19,7 @@ Also include the css file and grab the loader.gif:
 	<link rel="stylesheet" href="jquery.kyco.googleplusfeed2.css">
 
 Create a div to hold the feed and then pull the feed into it by calling the 
-kycoGooglePlusFeed method with the specified Google+ ID:
+kycoGooglePlusFeed2 method on it with the specified Google+ ID:
 
 	<div class="mydiv"></div>
 	
