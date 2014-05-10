@@ -48,7 +48,7 @@ What a customisation looks like:
 
 
 Configuration - kycoGooglePlusFeed2({ *options* })
--------------------------------------------------
+--------------------------------------------------
 
 	id: /* Google+ ID */,
 
