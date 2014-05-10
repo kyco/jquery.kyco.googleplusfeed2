@@ -1,5 +1,5 @@
-jquery.kyco.googleplusfeed2
-===========================
+kyco Google+ Feed 2
+===================
 ####Version: 2.0.2
 
 The best Google+ feed widget out there!
@@ -9,12 +9,12 @@ Take a look at the [demo](http://www.kycosoftware.com/projects/demo/googleplus-f
 How to install
 --------------
 
-Download the js file and include it after including jquery:
+Download or clone and include the minified js file after including jquery:
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="jquery.kyco.googleplusfeed2.min.js"></script>
 
-Also include the css file and grab the loader.gif:
+For default styling include the CSS file and loader.gif from the src directory:
 
 	<link rel="stylesheet" href="jquery.kyco.googleplusfeed2.css">
 
