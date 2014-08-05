@@ -18,11 +18,11 @@
 	var methods = {
 		init: function(options) {
 			var defaults = {
-				feedPosts: 3, // Feed posts to show on load
-				postsIncrement: 3, // Number of feed posts to show on "Show more" button click
-				maxPosts: 20, // Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API
-				profileImageSize: 50, // Max size is 250
-				lang: 'en' // Default language, can also be set to 'de'
+				feedPosts        : 3,   // Feed posts to show on load
+				postsIncrement   : 3,   // Number of feed posts to show on "Show more" button click
+				maxPosts         : 20,  // Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API
+				profileImageSize : 50,  // Max size is 250
+				lang             : 'en' // Default language, can also be set to 'de'
 			};
 
 			var settings = $.extend({}, defaults, options);
@@ -32,42 +32,42 @@
 
 				// Localization
 				settings.lang = settings.lang === 'en' ? {
-					langCode: 'en',
-					loading: 'Loading...',
-					showMore: 'Show more',
-					viewMore: 'View more posts on Google+',
-					shared: 'Shared publicly - ',
-					viewPost: 'View post',
-					errorEmpty: 'Nothing to show. Empty feed. ',
-					retryEmpty: 'Refresh',
-					errorGeneral: 'Unable to retrieve feed contents. ',
-					errorNotFound: 'User not found... Enter a valid Google+ ID',
-					retryGeneral: 'Retry'
+					langCode      : 'en',
+					loading       : 'Loading...',
+					showMore      : 'Show more',
+					viewMore      : 'View more posts on Google+',
+					shared        : 'Shared publicly - ',
+					viewPost      : 'View post',
+					errorEmpty    : 'Nothing to show. Empty feed. ',
+					retryEmpty    : 'Refresh',
+					errorGeneral  : 'Unable to retrieve feed contents. ',
+					errorNotFound : 'User not found... Enter a valid Google+ ID',
+					retryGeneral  : 'Retry'
 				} : {
-					langCode: 'de',
-					loading: 'Wird geladen...',
-					showMore: 'Mehr anzeigen',
-					viewMore: 'Weitere Beiträge ansehen bei Google+',
-					shared: 'Öffentlich geteilt - ',
-					viewPost: 'Beitrag ansehen',
-					errorEmpty: 'Nichts zu sehen. Keine Beiträge. ',
-					retryEmpty: 'Wiederholen',
-					errorGeneral: 'Es ist ein Fehler beim Abrufen der Beiträge aufgetreten. ',
-					errorNotFound: 'Benutzer nicht gefunden... Verwende einen gültigen Google+ ID',
-					retryGeneral: 'Wiederholen'
+					langCode      : 'de',
+					loading       : 'Wird geladen...',
+					showMore      : 'Mehr anzeigen',
+					viewMore      : 'Weitere Beiträge ansehen bei Google+',
+					shared        : 'Öffentlich geteilt - ',
+					viewPost      : 'Beitrag ansehen',
+					errorEmpty    : 'Nichts zu sehen. Keine Beiträge. ',
+					retryEmpty    : 'Wiederholen',
+					errorGeneral  : 'Es ist ein Fehler beim Abrufen der Beiträge aufgetreten. ',
+					errorNotFound : 'Benutzer nicht gefunden... Verwende einen gültigen Google+ ID',
+					retryGeneral  : 'Wiederholen'
 				};
 
 				// Create feed DOM elements.
-				var container = $('<div id="feed_' + selector.attr('class') + '" class="kyco_googleplusfeed ' + settings.lang.langCode + '"></div>');
-				var loader = $('<div class="feed_loader">' + settings.lang.loading + '</div>');
-				var wrapper = $('<div class="feed_wrapper"></div>');
-				var header =  $('<div class="feed_header"></div>');
-				var screenName = $('<h3 class="feed_screen_name"><a href="#" target="_blank"></a></h3>');
-				var profileImage = $('<a href="#" class="feed_profile_image" target="_blank"></a>');
-				var content = $('<div class="feed_content"></div>');
+				var container      = $('<div id="feed_' + selector.attr('class') + '" class="kyco_googleplusfeed ' + settings.lang.langCode + '"></div>');
+				var loader         = $('<div class="feed_loader">' + settings.lang.loading + '</div>');
+				var wrapper        = $('<div class="feed_wrapper"></div>');
+				var header         = $('<div class="feed_header"></div>');
+				var screenName     = $('<h3 class="feed_screen_name"><a href="#" target="_blank"></a></h3>');
+				var profileImage   = $('<a href="#" class="feed_profile_image" target="_blank"></a>');
+				var content        = $('<div class="feed_content"></div>');
 				var showMoreButton = $('<span class="feed_sow_more">' + settings.lang.showMore + '</span>');
-				var errorMessage = $('<div class="error"></div>');
-				var retryButton = $('<span class="retry"></span>')
+				var errorMessage   = $('<div class="error"></div>');
+				var retryButton    = $('<span class="retry"></span>');
 
 				header.append(profileImage, screenName);
 				wrapper.append(header, content, showMoreButton);
@@ -78,15 +78,15 @@
 				var googlePlusFeed = new GoogleFeed(settings.id);
 
 				function initFeed() {
-					var feedEntries = googlePlusFeed.entries;
-					var totalPosts = feedEntries.length;
-					var currentPosts = settings.feedPosts;
+					var feedEntries    = googlePlusFeed.entries;
+					var totalPosts     = feedEntries.length;
+					var currentPosts   = settings.feedPosts;
 					var postsIncrement = settings.postsIncrement;
-					var postsLimit = 0;
-					var showMore = false;
-					var i = 0;
-					var j = currentPosts;
-					var str = '';
+					var postsLimit     = 0;
+					var showMore       = false;
+					var i              = 0;
+					var j              = currentPosts;
+					var str            = '';
 
 					// Check to see if there are enough user posts to show on first load
 					currentPosts = totalPosts < currentPosts ? totalPosts : currentPosts;
@@ -101,10 +101,14 @@
 						profileImage.attr('href', googlePlusFeed.url);
 						profileImage.append('<img src="' + googlePlusFeed.image + '" width="' + settings.profileImageSize + '" height="' + settings.profileImageSize + '">');
 
-						content.html(str); // Update feed
+						// Update feed
+						content.html(str);
 
-						content.animate({scrollTop: 0}, 1); // Force scroll to top of content
-						wrapper.fadeIn(300); // Show the content
+						// Force scroll to top of content
+						content.animate({scrollTop: 0}, 1);
+
+						// Show the content
+						wrapper.fadeIn(300);
 					} else {
 						// No posts exist for the given Google+ ID
 						wrapper.children().remove();
@@ -112,14 +116,18 @@
 						retryButton.text(settings.lang.retryEmpty);
 						errorMessage.append(retryButton);
 						wrapper.append(errorMessage);
-						wrapper.fadeIn(300); // Show the content
+
+						// Show the content
+						wrapper.fadeIn(300);
 
 						// Refresh button functionality
 						wrapper.find('.retry').click(function() {
 							wrapper.children().remove();
 							wrapper.append(loader);
 							loader.show();
-							googlePlusFeed.getFeed(); // Try again
+
+							// Try again
+							googlePlusFeed.getFeed();
 						});
 					}
 
@@ -144,7 +152,8 @@
 							showMore = true;
 						}
 
-						content.html(str); // Update feed
+						// Update feed
+						content.html(str);
 					});
 
 
@@ -184,9 +193,9 @@
 
 						var dayMonthYear = formattedTime.split('T')[0];
 
-						var year = dayMonthYear.split('-')[0];
+						var year  = dayMonthYear.split('-')[0];
 						var month = abbreviatedMonths[monthsToNum.indexOf(dayMonthYear.split('-')[1])];
-						var day = dayMonthYear.split('-')[2];
+						var day   = dayMonthYear.split('-')[2];
 
 						var time = formattedTime.split('T').pop();
 
@@ -198,8 +207,9 @@
 
 				function GoogleFeed(id) {
 					var self = this;
-					self.id = id;
+					self.id  = id;
 					self.url = 'https://plus.google.com/' + self.id;
+
 					self.init = function() {
 						initFeed();
 					};
@@ -212,13 +222,13 @@
 							success: function(response) {
 								try {
 									if (response != '404' && response !== false) {
-										var profile = response.profile;
+										var profile  = response.profile;
 										var activity = response.activity;
 
 										var getPosts = function(posts) {
-											var response = [];
-											var len = posts.length;
-											var i = 0;
+											var response      = [];
+											var len           = posts.length;
+											var i             = 0;
 											var validMaxPosts = 0;
 
 											for (; i < len; i++) {
@@ -253,20 +263,21 @@
 												});
 											});
 										});
-
-										// messagePane.append('<pre>' + JSON.stringify(userDetails, null, '\t') + '</pre>');
-
 									} else if (response == '404') {
 										loader.fadeOut(300, function() {
 											errorMessage.text(settings.lang.errorNotFound);
 											wrapper.html(errorMessage);
-											wrapper.fadeIn(300); // Show the content
+
+											// Show the content
+											wrapper.fadeIn(300);
 										});
 									} else {
 										loader.fadeOut(300, function() {
 											errorMessage.text(settings.lang.errorGeneral);
 											wrapper.html(errorMessage);
-											wrapper.fadeIn(300); // Show the content
+
+											// Show the content
+											wrapper.fadeIn(300);
 										});
 									}
 								} catch (error) {
@@ -276,14 +287,18 @@
 										retryButton.text(settings.lang.retryGeneral);
 										errorMessage.append(retryButton);
 										wrapper.append(errorMessage);
-										wrapper.fadeIn(300); // Show the content
+
+										// Show the content
+										wrapper.fadeIn(300);
 
 										// Retry button functionality
 										wrapper.find('.retry').click(function() {
 											wrapper.children().remove();
 											wrapper.append(loader);
 											loader.show();
-											self.getFeed(); // Try again
+
+											// Try again
+											self.getFeed();
 										});
 									});
 								}
