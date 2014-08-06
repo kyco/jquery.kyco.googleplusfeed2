@@ -69,7 +69,7 @@ because of Google API in use.
 
 	profileImageSize: 50,
 
-Image size of the profile image, max size is 250. Also adjust css if changing the default.
+Image size of the profile image, max size is 250. Also adjust CSS if changing the default.
 
 	lang: 'en'
 
@@ -79,7 +79,7 @@ Default language is English, can also be set to German - 'de'.
 Styling
 -------
 
-By default you will have to also include the loader image if you want
+By default you will have to include the loader image if you want
 a spinner to appear while the feed is loading.
 
 
