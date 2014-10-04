@@ -83,6 +83,12 @@ By default you will have to include the loader image if you want
 a spinner to appear while the feed is loading.
 
 
+Privacy Policy
+--------------
+
+View the [Privacy Policy](https://github.com/kyco/jquery.kyco.googleplusfeed2/wiki/Privacy-Policy).
+
+
 Support
 -------
 
