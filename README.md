@@ -9,7 +9,7 @@ Take a look at the [demo](http://www.kycosoftware.com/projects/demo/googleplus-f
 How to install
 --------------
 
-Bower: `bower install jquery.kyco.easyshare -D`
+Bower: `bower install jquery.kyco.googleplusfeed2 -D`
 
 Manual: Download or clone and include the minified js file after including jquery:
 
