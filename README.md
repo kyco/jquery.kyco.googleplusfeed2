@@ -43,6 +43,7 @@ What a customisation looks like:
 				postsIncrement: 1,
 				maxPosts: 5,
 				profileImageSize: 150,
+				orderBy: 'popularity',
 				sort: 'asc',
 				lang: 'de'
 			});
