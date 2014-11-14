@@ -3,7 +3,7 @@
 	jquery.kyco.googleplusfeed
 	==========================
 
-	Version 2.0.2
+	Version 2.0.3
 
 	Brought to you by
 	http://www.kycosoftware.com/
@@ -18,11 +18,12 @@
 	var methods = {
 		init: function(options) {
 			var defaults = {
-				feedPosts        : 3,   // Feed posts to show on load
-				postsIncrement   : 3,   // Number of feed posts to show on "Show more" button click
-				maxPosts         : 20,  // Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API
-				profileImageSize : 50,  // Max size is 250
-				lang             : 'en' // Default language, can also be set to 'de'
+				feedPosts        : 3,		// Feed posts to show on load
+				postsIncrement   : 3,		// Number of feed posts to show on "Show more" button click
+				maxPosts         : 20,		// Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API
+				profileImageSize : 50,		// Max size is 250
+				sort             : 'asc',	// Either 'asc' or 'desc'
+				lang             : 'en'		// Default language, can also be set to 'de'
 			};
 
 			var settings = $.extend({}, defaults, options);
@@ -159,13 +160,12 @@
 
 					function stringBuilder(e) {
 						// Generates the HTML for each post
-						var newStr = '';
-
-						newStr += '<div class="feed_post post_' + (e + 1) + '">';
-						newStr += '<span title="' + formatTime(e, true) + '">' + settings.lang.shared + formatTime(e) + '</span>';
-						newStr += '<p>' + feedEntries[e].content + '</p>';
-						newStr += '<a href="' + feedEntries[e].url + '" target="_blank">' + settings.lang.viewPost + '</a>';
-						newStr += '</div>';
+						var newStr = '' +
+						'<div class="feed_post post_' + (e + 1) + '">' +
+							'<span title="' + formatTime(e, true) + '">' + settings.lang.shared + formatTime(e) + '</span>' +
+							'<p>' + feedEntries[e].content + '</p>' +
+							'<a href="' + feedEntries[e].url + '" target="_blank">' + settings.lang.viewPost + '</a>' +
+						'</div>';
 
 						return newStr;
 					}
@@ -241,6 +241,16 @@
 
 													validMaxPosts++;
 												}
+											}
+
+											if (settings.sort === 'asc' ) {
+												response.sort(function(a, b) {
+													return new Date(b.publishedDate) - new Date(a.publishedDate);
+												});
+											} else {
+												response.sort(function(a, b) {
+													return new Date(a.publishedDate) - new Date(b.publishedDate);
+												});
 											}
 
 											return response;
