@@ -3,7 +3,7 @@
 	jquery.kyco.googleplusfeed
 	==========================
 
-	Version 2.0.3
+	Version 2.0.4
 
 	Brought to you by
 	http://www.kycosoftware.com/
@@ -22,6 +22,7 @@
 				postsIncrement   : 3,		// Number of feed posts to show on "Show more" button click
 				maxPosts         : 20,		// Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API
 				profileImageSize : 50,		// Max size is 250
+				orderBy          : 'date',	// Either 'date' or 'popularity'
 				sort             : 'asc',	// Either 'asc' or 'desc'
 				lang             : 'en'		// Default language, can also be set to 'de'
 			};
@@ -236,21 +237,35 @@
 													response.push({
 														url: posts[i].object.url,
 														publishedDate: posts[i].published,
-														content: posts[i].object.content
+														content: posts[i].object.content,
+														plusones: posts[i].object.plusoners.totalItems
 													});
 
 													validMaxPosts++;
 												}
 											}
 
-											if (settings.sort === 'asc' ) {
-												response.sort(function(a, b) {
-													return new Date(b.publishedDate) - new Date(a.publishedDate);
-												});
+											if (settings.orderBy === 'date') {
+												if (settings.sort === 'asc') {
+													response.sort(function(a, b) {
+														return new Date(b.publishedDate) - new Date(a.publishedDate);
+													});
+												} else {
+													response.sort(function(a, b) {
+														return new Date(b.publishedDate) - new Date(a.publishedDate);
+													});
+												}
 											} else {
-												response.sort(function(a, b) {
-													return new Date(a.publishedDate) - new Date(b.publishedDate);
-												});
+												// sort by popularity
+												if (settings.sort === 'asc') {
+													response.sort(function(a, b) {
+														return b.plusones - a.plusones;
+													});
+												} else {
+													response.sort(function(a, b) {
+														return a.plusones - b.plusones;
+													});
+												}
 											}
 
 											return response;

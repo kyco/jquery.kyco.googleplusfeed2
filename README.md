@@ -1,6 +1,6 @@
 kyco Google+ Feed 2
 ===================
-####Version: 2.0.3
+####Version: 2.0.4
 
 The best Google+ feed widget out there!
 
@@ -74,9 +74,13 @@ because of Google API in use.
 
 Image size of the profile image, max size is 250. Also adjust CSS if changing the default.
 
+	orderBy: 'date'
+
+Order posts by 'date' or 'popularity'.
+
 	sort: 'asc',
 
-Sort order of the posts by date. Default is 'asc' (i.e. latest posts first) can be set to 'desc'.
+Sort order of the orderBy parameter. Default is 'asc' (i.e. latest or most popular posts first) can be set to 'desc'.
 
 	lang: 'en'
 
