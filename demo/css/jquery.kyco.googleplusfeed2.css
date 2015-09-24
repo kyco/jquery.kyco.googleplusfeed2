@@ -3,12 +3,12 @@
 	jquery.kyco.googleplusfeed
 	==========================
 
-	Version 2.0.4
+	Version 2.0.6
 
 	Brought to you by
-	http://www.kycosoftware.com/
+	https://www.kycosoftware.com/
 
-	Copyright 2014 Cornelius Weidmann
+	Copyright 2015 Cornelius Weidmann
 
 	Distributed under the GPL
 
@@ -98,7 +98,7 @@
 	margin: 7px 0;
 }
 
-.kyco_googleplusfeed .feed_sow_more {
+.kyco_googleplusfeed .feed_show_more {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
@@ -121,7 +121,7 @@
 	background-image: linear-gradient(center top , #dd4B39, #d14836);
 }
 
-.kyco_googleplusfeed .feed_sow_more:hover {
+.kyco_googleplusfeed .feed_show_more:hover {
 	border-color: #c53727;
 	border-color: #b0281a #b0281a #af301f;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -129,14 +129,14 @@
 	background-image: -webkit-linear-gradient(center top , #dd4b39, #c53727);
 	background-image: linear-gradient(center top , #dd4b39, #c53727);
 }
-.kyco_googleplusfeed .feed_sow_more:active {
+.kyco_googleplusfeed .feed_show_more:active {
 	box-shadow: 0 0 0 1px #fff inset;
 }
-.kyco_googleplusfeed .feed_sow_more:focus {
+.kyco_googleplusfeed .feed_show_more:focus {
 	box-shadow: 0 0 0 1px #fff inset;
 }
 
-.kyco_googleplusfeed .feed_sow_more.link {
+.kyco_googleplusfeed .feed_show_more.link {
 	cursor: pointer;
 }
 
@@ -149,7 +149,7 @@
 }
 
 .kyco_googleplusfeed .feed_loader {
-	background: url(../images/loader.gif) no-repeat 110px center;
+	background: url(loader.gif) no-repeat 110px center;
 	padding: 10px 20px;
 	text-align: center;
 	text-indent: 20px;

@@ -3,12 +3,12 @@
 	jquery.kyco.googleplusfeed
 	==========================
 
-	Version 2.0.4
+	Version 2.0.6
 
 	Brought to you by
-	http://www.kycosoftware.com/
+	https://www.kycosoftware.com/
 
-	Copyright 2014 Cornelius Weidmann
+	Copyright 2015 Cornelius Weidmann
 
 	Distributed under the GPL
 
@@ -67,7 +67,7 @@
 				var screenName     = $('<h3 class="feed_screen_name"><a href="#" target="_blank"></a></h3>');
 				var profileImage   = $('<a href="#" class="feed_profile_image" target="_blank"></a>');
 				var content        = $('<div class="feed_content"></div>');
-				var showMoreButton = $('<span class="feed_sow_more">' + settings.lang.showMore + '</span>');
+				var showMoreButton = $('<span class="feed_show_more">' + settings.lang.showMore + '</span>');
 				var errorMessage   = $('<div class="error"></div>');
 				var retryButton    = $('<span class="retry"></span>');
 
@@ -218,7 +218,7 @@
 					self.getFeed = function() {
 						$.ajax({
 							type: 'GET',
-							url: 'http://www.kycosoftware.com/api/googleplus-feed/' + self.id,
+							url: 'https://www.kycosoftware.com/api/googleplus-feed/' + self.id,
 							dataType: 'json',
 							success: function(response) {
 								try {
@@ -278,7 +278,7 @@
 
 										// Check if image URL exists, error handling for 404s
 										$.get(self.image).fail(function() {
-											self.image = 'http://www.kycosoftware.com/images/general/googleplus-404.png';
+											self.image = 'https://www.kycosoftware.com/images/general/googleplus-404.png';
 										}).always(function() {
 											// Preload profile image and only show content thereafter
 											$('<img src="' + self.image + '">').load(function() {
