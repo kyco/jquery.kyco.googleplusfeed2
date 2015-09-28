@@ -8,12 +8,12 @@ The [kyco Google+ feed widget](https://github.com/kyco/jquery.kyco.googleplusfee
 information via the provided Google+ ID.
 
 The Google+ ID that gets passed to invoke the plugin does not get stored in our database or anywhere on
-our hosting provider's storage systems. Neither is any user information stored or gathered for any purposes 
+our hosting provider's storage systems. Neither is any user information stored or gathered for any purposes
 whatsoever.
 
 The plugin connects to the Google+ API with the kyco API key and retrieves publicly available
 user information from the provided Google+ ID. It retrieves the user's public activity (i.e. Google+ posts)
-and the user's public profile (used to display the name and image of the provided ID). Neither of this 
+and the user's public profile (used to display the name and image of the provided ID). Neither of this
 information is used or gathered by kyco.
 
 

@@ -1,43 +1,43 @@
-/***************************************\
-
-	jquery.kyco.googleplusfeed
-	==========================
-
-	Version 2.0.6
-
-	Brought to you by
-	https://www.kycosoftware.com/
-
-	Copyright 2015 Cornelius Weidmann
-
-	Distributed under the GPL
-
-\***************************************/
+/*
+**
+**  jquery.kyco.googleplusfeed
+**  ==========================
+**
+**  Version 2.0.7
+**
+**  Brought to you by
+**  https://www.kycosoftware.com/
+**
+**  Copyright 2015 Cornelius Weidmann
+**
+**  Distributed under the GPL
+**
+*/
 
 /* Custom styling for demo */
 
 .kyco_googleplusfeed {
-	float: left;
-	margin: 0 50px 20px 0;
+  float: left;
+  margin: 0 50px 20px 0;
 }
 
 .gplus2 .kyco_googleplusfeed * {
-	text-align: center;
+  text-align: center;
 }
 
 .gplus2 .kyco_googleplusfeed .feed_header {
-	padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .gplus2 .kyco_googleplusfeed .feed_profile_image {
-	margin-left: 55px;
-	width: 150px; /* should be equal to profileImageSize */
-	height: 150px; /* should be equal to profileImageSize */
+  margin-left: 55px;
+  width: 150px; /* should be equal to profileImageSize */
+  height: 150px; /* should be equal to profileImageSize */
 }
 
 .gplus2 .kyco_googleplusfeed .feed_screen_name {
-	clear: both;
-	height: 30px;
-	line-height: 20px;
-	padding-top: 10px;
+  clear: both;
+  height: 30px;
+  line-height: 20px;
+  padding-top: 10px;
 }
