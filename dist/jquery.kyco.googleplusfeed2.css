@@ -3,7 +3,7 @@
 **  jquery.kyco.googleplusfeed
 **  ==========================
 **
-**  Version 2.1.0
+**  Version 2.1.1
 **
 **  Brought to you by
 **  https://www.kycosoftware.com/
@@ -145,6 +145,7 @@
 }
 
 .kyco_googleplusfeed .feed_post p.attachment.video iframe {
+  background-color: #eff;
   border: 0;
 }
 
