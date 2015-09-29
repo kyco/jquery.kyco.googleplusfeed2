@@ -24,6 +24,8 @@
         postsIncrement   : 3,       // Number of feed posts to show on "Show more" button click
         maxPosts         : 20,      // Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API
         profileImageSize : 50,      // Max size is 250
+        fadeSpeed        : 250,     // Fade-in animation duration
+        loadAttachments  : true,    // Load images, videos, links and other attachments into feed?
         orderBy          : 'date',  // Either 'date' or 'popularity'
         sort             : 'asc',   // Either 'asc' or 'desc'
         lang             : 'en'     // Default language, can also be set to 'de'
@@ -48,7 +50,9 @@
           retryEmpty    : 'Refresh',
           errorGeneral  : 'Unable to retrieve feed contents. ',
           errorNotFound : 'User not found... Enter a valid Google+ ID',
-          retryGeneral  : 'Retry'
+          retryGeneral  : 'Retry',
+          originalShare : 'originally shared',
+          viewVideo     : 'View video at original URL'
         } : {
           langCode      : 'de',
           loading       : 'Wird geladen...',
@@ -60,7 +64,9 @@
           retryEmpty    : 'Wiederholen',
           errorGeneral  : 'Es ist ein Fehler beim Abrufen der Beiträge aufgetreten. ',
           errorNotFound : 'Benutzer nicht gefunden... Verwende einen gültigen Google+ ID',
-          retryGeneral  : 'Wiederholen'
+          retryGeneral  : 'Wiederholen',
+          originalShare : 'ursprünglich geteilt',
+          viewVideo     : 'Video Blick in Original URL'
         };
 
         // Create feed DOM elements.
@@ -128,14 +134,97 @@
 
             function stringBuilder(e) {
               // Generates the HTML for each post
-              var newStr = '' +
-              '<div class="feed_post post_' + (e + 1) + '">' +
-                '<span title="' + formatTime(e, true) + '">' + settings.lang.shared + formatTime(e) + '</span>' +
-                '<p>' + feedEntries[e].content + '</p>' +
-                '<a href="' + feedEntries[e].url + '" target="_blank">' + settings.lang.viewPost + '</a>' +
-              '</div>';
+              var markup = '';
+              var albumMarkup = '';
+              var attachmentMarkup = '';
+              var x, y, q, r;
 
-              return newStr;
+              if (settings.loadAttachments && typeof feedEntries[e].attachments !== 'undefined') {
+                for (x = 0, y = feedEntries[e].attachments.length; x < y; x++) {
+                  albumMarkup = '';
+
+                  switch (feedEntries[e].attachments[x].objectType) {
+                    case 'photo':
+                      attachmentMarkup += '' +
+                      '<p class="attachment photo">' +
+                        '<a href="' + feedEntries[e].attachments[x].url + '" target="_blank" title="View photo">' +
+                          '<img width="100%" src="' + feedEntries[e].attachments[x].image.url + '">' +
+                        '</a>' +
+                      '</p>';
+                      break;
+
+                    case 'album':
+                      for (q = 0, r = feedEntries[e].attachments[x].thumbnails.length; q < r; q++) {
+                        albumMarkup += '' +
+                        '<a href="' + feedEntries[e].attachments[x].thumbnails[q].url + '" target="_blank" title="View album">' +
+                          '<img width="100%" src="' + feedEntries[e].attachments[x].thumbnails[q].image.url + '">' +
+                        '</a>';
+                      }
+                      attachmentMarkup += '' +
+                      '<p class="attachment album">' +
+                        albumMarkup +
+                      '</p>';
+                      break;
+
+                    case 'article':
+                      if (feedEntries[e].attachments[x].fullImage) {
+                        attachmentMarkup += '' +
+                        '<p class="attachment photo">' +
+                          '<a href="' + feedEntries[e].attachments[x].url + '" target="_blank" title="View article">' +
+                            '<img width="100%" src="' + feedEntries[e].attachments[x].fullImage.url + '">' +
+                          '</a>' +
+                        '</p>';
+                      } else {
+                        attachmentMarkup += '' +
+                        '<p class="attachment article">' +
+                          '<a href="' + feedEntries[e].attachments[x].url + '" target="_blank" title="View article">' +
+                            '<span title="' + feedEntries[e].attachments[x].displayName + '">' + feedEntries[e].attachments[x].displayName + '</span>' +
+                            '<small title="' + feedEntries[e].attachments[x].url + '">' + feedEntries[e].attachments[x].url + '</small>' +
+                          '</a>' +
+                        '</p>';
+                      }
+                      break;
+
+                    case 'video':
+                      attachmentMarkup += '' +
+                      '<p class="attachment video">' +
+                        '<iframe width="100%" scrolling="no" src="' + feedEntries[e].attachments[x].embed.url + '"></iframe>' +
+                        '<a href="' + feedEntries[e].attachments[x].url + '" target="_blank" title="View video">' +
+                          settings.lang.viewVideo +
+                        '</a>' +
+                      '</p>';
+                      break;
+                    // no default
+                  }
+                }
+              }
+
+              if (typeof feedEntries[e].annotation !== 'undefined') {
+                markup += '' +
+                '<div class="feed_post post_' + (e + 1) + '">' +
+                  '<span title="' + formatTime(e, true) + '">' + settings.lang.shared + formatTime(e) + '</span>' +
+                  '<p>' + feedEntries[e].annotation + '</p>' +
+                  '<div class="original">' +
+                    '<p class="original">' +
+                      feedEntries[e].originalPoster.displayName +
+                      ' <span>' + settings.lang.originalShare + ':</span>' +
+                    '</p>' +
+                    attachmentMarkup +
+                    '<p>' + feedEntries[e].content + '</p>' +
+                  '</div>' +
+                  '<a href="' + feedEntries[e].url + '" target="_blank">' + settings.lang.viewPost + '</a>' +
+                '</div>';
+              } else {
+                markup += '' +
+                '<div class="feed_post post_' + (e + 1) + '">' +
+                  '<span title="' + formatTime(e, true) + '">' + settings.lang.shared + formatTime(e) + '</span>' +
+                  attachmentMarkup +
+                  '<p>' + feedEntries[e].content + '</p>' +
+                  '<a href="' + feedEntries[e].url + '" target="_blank">' + settings.lang.viewPost + '</a>' +
+                '</div>';
+              }
+
+              return markup;
             }
 
             // Check to see if there are enough user posts to show on first load
@@ -158,7 +247,7 @@
               content.animate({scrollTop: 0}, 1);
 
               // Show the content
-              wrapper.fadeIn(300);
+              wrapper.fadeIn(settings.fadeSpeed);
             } else {
               // No posts exist for the given Google+ ID
               wrapper.children().remove();
@@ -168,7 +257,7 @@
               wrapper.append(errorMessage);
 
               // Show the content
-              wrapper.fadeIn(300);
+              wrapper.fadeIn(settings.fadeSpeed);
 
               // Refresh button functionality
               wrapper.find('.retry').click(function() {
@@ -223,7 +312,7 @@
                     activity = response.activity;
 
                     getPosts = function(posts) {
-                      var innerResponse      = [];
+                      var innerResponse = [];
                       var len           = posts.length;
                       var i             = 0;
                       var validMaxPosts = 0;
@@ -231,12 +320,14 @@
                       for (; i < len; i++) {
                         if (validMaxPosts < settings.maxPosts && posts[i].object.content !== '') {
                           innerResponse.push({
-                            url: posts[i].object.url,
-                            publishedDate: posts[i].published,
-                            content: posts[i].object.content,
-                            plusones: posts[i].object.plusoners.totalItems
+                            url            : posts[i].object.url,
+                            publishedDate  : posts[i].published,
+                            content        : posts[i].object.content,
+                            annotation     : posts[i].annotation,
+                            attachments    : posts[i].object.attachments,
+                            plusones       : posts[i].object.plusoners.totalItems,
+                            originalPoster : posts[i].object.actor
                           });
-
                           validMaxPosts++;
                         }
                       }
@@ -281,31 +372,31 @@
                     }).always(function() {
                       // Preload profile image and only show content thereafter
                       $('<img src="' + self.image + '">').load(function() {
-                        loader.fadeOut(300, function() {
+                        loader.fadeOut(settings.fadeSpeed, function() {
                           loader.remove();
                           self.init();
                         });
                       });
                     });
                   } else if (response === '404') {
-                    loader.fadeOut(300, function() {
+                    loader.fadeOut(settings.fadeSpeed, function() {
                       errorMessage.text(settings.lang.errorNotFound);
                       wrapper.html(errorMessage);
 
                       // Show the content
-                      wrapper.fadeIn(300);
+                      wrapper.fadeIn(settings.fadeSpeed);
                     });
                   } else {
-                    loader.fadeOut(300, function() {
+                    loader.fadeOut(settings.fadeSpeed, function() {
                       errorMessage.text(settings.lang.errorGeneral);
                       wrapper.html(errorMessage);
 
                       // Show the content
-                      wrapper.fadeIn(300);
+                      wrapper.fadeIn(settings.fadeSpeed);
                     });
                   }
                 } catch (error) {
-                  loader.fadeOut(300, function() {
+                  loader.fadeOut(settings.fadeSpeed, function() {
                     wrapper.children().remove();
                     errorMessage.text(settings.lang.errorGeneral);
                     retryButton.text(settings.lang.retryGeneral);
@@ -313,7 +404,7 @@
                     wrapper.append(errorMessage);
 
                     // Show the content
-                    wrapper.fadeIn(300);
+                    wrapper.fadeIn(settings.fadeSpeed);
 
                     // Retry button functionality
                     wrapper.find('.retry').click(function() {

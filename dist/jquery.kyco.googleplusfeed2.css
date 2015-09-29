@@ -3,7 +3,7 @@
 **  jquery.kyco.googleplusfeed
 **  ==========================
 **
-**  Version 2.0.7
+**  Version 2.1.0
 **
 **  Brought to you by
 **  https://www.kycosoftware.com/
@@ -98,6 +98,83 @@
   margin: 7px 0;
 }
 
+.kyco_googleplusfeed .feed_post div.original p.original {
+  font-weight: bold;
+  color: #262626;
+}
+
+.kyco_googleplusfeed .feed_post div.original p.original span {
+  font-size: 13px;
+  font-weight: normal;
+  color: #404040;
+}
+
+.kyco_googleplusfeed .feed_post div.original {
+  margin: 10px 0;
+  padding: 3px 0 3px 10px;
+  border-top: 1px dotted #eee;
+  border-left: 1px dotted #eee;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment a {
+  display: block;
+  color: #bbb;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment a:hover {
+  text-decoration: none;
+  color: #427fed !important;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment a span,
+.kyco_googleplusfeed .feed_post p.attachment a small {
+  display: block;
+  padding-bottom: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment a small {
+  padding-bottom: 0;
+  font-size: 12px;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment.photo {
+  padding-top: 4px;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment.video iframe {
+  border: 0;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment.video iframe + a {
+  font-size: 11px;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment.album a {
+  width: 50%;
+  float: left;
+  margin: 4px 0 8px;
+  border-right: 1px solid #fff;
+}
+
+
+.kyco_googleplusfeed .feed_post p.attachment.article a {
+  border-radius: 2px;
+  border: 1px solid #eee;
+  padding: 10px;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment.article a:hover {
+  box-shadow: 0 1px 0 #ddd;
+}
+
+.kyco_googleplusfeed .feed_post p.attachment.article a span {
+  font-weight: bold;
+  color: #404040;
+}
+
 .kyco_googleplusfeed .feed_show_more {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -146,6 +223,10 @@
 
 .kyco_googleplusfeed:hover .feed_post > a {
   color: #262626;
+}
+
+.kyco_googleplusfeed:hover .feed_post p.attachment a {
+  color: #bbb;
 }
 
 .kyco_googleplusfeed .feed_loader {

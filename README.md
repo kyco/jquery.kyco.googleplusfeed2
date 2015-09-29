@@ -1,6 +1,6 @@
 kyco Google+ Feed 2
 ===================
-####Version: 2.0.7
+####Version: 2.1.0
 
 The best Google+ feed widget out there!
 
@@ -39,13 +39,15 @@ What a customisation looks like:
     $(document).ready(function() {
       $('.mydiv2').kycoGooglePlusFeed2({
         id: '116899029375914044550',
-        feedPosts: 2,
-        postsIncrement: 1,
-        maxPosts: 5,
-        profileImageSize: 150,
-        orderBy: 'popularity',
-        sort: 'asc',
-        lang: 'de'
+        feedPosts: 2,           // Feed posts to show on load
+        postsIncrement: 1,      // Number of feed posts to show on "Show more" button click
+        maxPosts: 5,            // Max number of posts to pull before "Show more" will go to Google+, cannot excced 20 because of Google API in use
+        profileImageSize: 150,  // Max is 250
+        fadeSpeed: 0,           // Fade-in animation duration
+        loadAttachments: false, // Load images, videos, links and other attachments into feed?
+        orderBy: 'popularity',  // Either 'date' or 'popularity'
+        sort: 'asc',            // Either 'asc' or 'desc'
+        lang: 'de'              // Default language, can also be set to 'de'
       });
     });
   </script>
@@ -74,6 +76,14 @@ because of Google API in use.
   profileImageSize: 50,
 
 Image size of the profile image, max size is 250. Also adjust CSS if changing the default.
+
+  fadeSpeed: 250,
+
+Fade-in animation duration
+
+  loadAttachments: true,
+
+Load images, videos, links and other attachments into feed?
 
   orderBy: 'date'
 
