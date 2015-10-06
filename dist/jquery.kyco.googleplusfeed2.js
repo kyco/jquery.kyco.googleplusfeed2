@@ -3,7 +3,7 @@
 **  jquery.kyco.googleplusfeed
 **  ==========================
 **
-**  Version 2.1.1
+**  Version 2.1.2
 **
 **  Brought to you by
 **  https://www.kycosoftware.com/
@@ -186,13 +186,22 @@
                       break;
 
                     case 'video':
-                      attachmentMarkup += '' +
-                      '<p class="attachment video">' +
-                        '<iframe width="100%" scrolling="no" src="' + feedEntries[e].attachments[x].embed.url + '"></iframe>' +
-                        '<a href="' + feedEntries[e].attachments[x].url + '" target="_blank" title="View video">' +
-                          settings.lang.viewVideo +
-                        '</a>' +
-                      '</p>';
+                      if (typeof feedEntries[e].attachments[x].embed !== 'undefined') {
+                        attachmentMarkup += '' +
+                        '<p class="attachment video">' +
+                          '<iframe width="100%" scrolling="no" src="' + feedEntries[e].attachments[x].embed.url + '"></iframe>' +
+                          '<a href="' + feedEntries[e].attachments[x].url + '" target="_blank" title="View video">' +
+                            settings.lang.viewVideo +
+                          '</a>' +
+                        '</p>';
+                      } else {
+                        attachmentMarkup += '' +
+                        '<p class="attachment photo">' +
+                          '<a href="' + feedEntries[e].attachments[x].url + '" target="_blank" title="View video">' +
+                            '<img width="100%" src="' + feedEntries[e].attachments[x].image.url + '">' +
+                          '</a>' +
+                        '</p>';
+                      }
                       break;
                     // no default
                   }
