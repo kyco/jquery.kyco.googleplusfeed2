@@ -3,7 +3,7 @@
 **  jquery.kyco.googleplusfeed
 **  ==========================
 **
-**  Version 2.1.2
+**  Version 2.1.3
 **
 **  Brought to you by
 **  https://www.kycosoftware.com/
@@ -310,7 +310,7 @@
           self.getFeed = function() {
             $.ajax({
               type: 'GET',
-              url: 'https://www.kycosoftware.com/api/googleplus-feed/' + self.id,
+              url: 'https://www.kycosoftware.com/api/googleplus-feed/' + encodeURIComponent(self.id),
               dataType: 'json',
               success: function(response) {
                 var profile, activity, getPosts;

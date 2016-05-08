@@ -1,6 +1,6 @@
 kyco Google+ Feed 2
 ===================
-####Version: 2.1.2
+####Version: 2.1.3
 
 The best Google+ feed widget out there!
 
@@ -56,7 +56,7 @@ What a customisation looks like:
 Configuration - kycoGooglePlusFeed2({ *options* })
 --------------------------------------------------
 
-    id: /* Google+ ID */,
+    id: /* Google+ ID (e.g. "106189723444098348646" or "+LarryPage") */,
 
 The Google+ ID used to generate the feed.
 
