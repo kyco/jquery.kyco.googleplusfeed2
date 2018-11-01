@@ -61,7 +61,7 @@ What a customisation looks like:
 Configuration - kycoGooglePlusFeed2({ *options* })
 --------------------------------------------------
 
-    id: '106189723444098348646' // can also be a username, e.g. +LarryPage
+    id: '106189723444098348646', // can also be a username, e.g. "+LarryPage"
 
 The Google+ ID used to generate the feed.
 
