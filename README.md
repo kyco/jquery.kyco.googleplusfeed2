@@ -4,7 +4,7 @@ kyco Google+ Feed 2
 
 The best Google+ feed widget out there!
 
-[Demo](https://kyco.github.io/jquery.kyco.googleplusfeed2).
+[Demo](https://kyco.github.io/jquery.kyco.googleplusfeed2)
 
 How to install
 --------------
@@ -15,7 +15,7 @@ Bower:
 
 Manual:
 
-    // Download or clone the repo
+    Download or clone the repo
 
 Include the minified JS file after including jQuery (supports and tested with jQuery 1, 2 & 3):
 
