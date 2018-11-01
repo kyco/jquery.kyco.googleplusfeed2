@@ -3,7 +3,7 @@
 **  jquery.kyco.googleplusfeed
 **  ==========================
 **
-**  Version 2.1.3
+**  Version 2.1.4
 **
 **  Brought to you by
 **  https://www.kycosoftware.com/
@@ -380,7 +380,7 @@
                       self.image = 'https://www.kycosoftware.com/images/general/googleplus-404.png';
                     }).always(function() {
                       // Preload profile image and only show content thereafter
-                      $('<img src="' + self.image + '">').load(function() {
+                      $('<img src="' + self.image + '">').on('load', function() {
                         loader.fadeOut(settings.fadeSpeed, function() {
                           loader.remove();
                           self.init();
