@@ -9,11 +9,9 @@ The best Google+ feed widget out there!
 How to install
 --------------
 
-Manual:
-
     Download or clone the repo
 
-Include the minified JS file after including jQuery (supports and tested with jQuery 1, 2 & 3):
+Include the minified JS file after including jQuery (supports jQuery 1, 2 & 3):
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="jquery.kyco.googleplusfeed2.min.js"></script>
