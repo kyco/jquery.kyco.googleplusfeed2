@@ -1,10 +1,10 @@
 kyco Google+ Feed 2
 ===================
-####Version: 2.1.3
+#### Version: 2.1.3
 
 The best Google+ feed widget out there!
 
-Take a look at the [demo](http://www.kycosoftware.com/projects/demo/googleplus-feed-widget-2).
+Take a look at the [demo](https://kyco.github.io/jquery.kyco.googleplusfeed2).
 
 How to install
 --------------
