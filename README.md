@@ -55,45 +55,18 @@ What a customisation looks like:
 Configuration - kycoGooglePlusFeed2({ *options* })
 --------------------------------------------------
 
-    id: '106189723444098348646', // can also be a username, e.g. "+LarryPage"
-
-The Google+ ID used to generate the feed.
-
-    feedPosts: 3,
-
-Feed posts to show on load.
-
-    postsIncrement: 3,
-
-Number of feed posts to show on "Show more" button click.
-
-    maxPosts: 20,
-
-Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API in use.
-
-    profileImageSize: 50,
-
-Image size of the profile image, max size is 250. Also adjust CSS if changing the default.
-
-    fadeSpeed: 250,
-
-Fade-in animation duration
-
-    loadAttachments: true,
-
-Load images, videos, links and other attachments into feed?
-
-    orderBy: 'date'
-
-Order posts by 'date' or 'popularity'.
-
-    sort: 'asc',
-
-Sort order of the orderBy parameter. Default is 'asc' (i.e. latest or most popular posts first) can be set to 'desc'.
-
-    lang: 'en'
-
-Default language is English, can also be set to German - 'de'.
+Option | Description | Example
+-------|-------------|--------
+`id` | The Google+ ID or username used to generate the feed. | `"106189723444098348646"` or `"+LarryPage"`
+`feedPosts`| Feed posts to show on load, maximum is 20. | `3`
+`postsIncrement`| Number of feed posts to show on "Show more" button click. | `3`
+`maxPosts`| Max number of posts to pull before "Show more" will go to Google+, cannot exceed 20 because of Google API in use. | `20`
+`profileImageSize` | Image size of the profile image, max size is 250. Also adjust CSS if changing the default. | `50`
+`fadeSpeed` | Fade-in animation duration. | `250`
+`loadAttachments` | Load images, videos, links and other attachments into feed? | `true` or `false`
+`orderBy` | Choose what to order the posts by. | `"date"` or `"popularity"`
+`sort` | Sort order of the `orderBy` parameter. | `"asc"` or `"desc"`
+`lang` | Language, defaults to English. | `"en"` or `"de"`
 
 
 Styling
