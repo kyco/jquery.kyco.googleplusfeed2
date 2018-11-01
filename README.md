@@ -9,10 +9,6 @@ The best Google+ feed widget out there!
 How to install
 --------------
 
-Bower:
-
-    bower install jquery.kyco.googleplusfeed2 --save-dev
-
 Manual:
 
     Download or clone the repo
