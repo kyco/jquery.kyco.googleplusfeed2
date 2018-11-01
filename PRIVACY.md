@@ -49,4 +49,4 @@ of notifying users of changes to this policy. It is the user's responsibility to
 Questions
 ---------
 
-Any questions about this Privacy Policy should be addressed to [support@kycosoftware.com](mailto:support@kycosoftware.com).
+Any questions about this Privacy Policy should be addressed to [support@kyco.io](mailto:support@kyco.io).
