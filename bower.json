@@ -1,6 +1,6 @@
 {
   "name": "jquery.kyco.googleplusfeed2",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "homepage": "www.kycosoftware.com",
   "description": "The best Google+ feed widget out there!",
   "main": "dist/jquery.kyco.googleplusfeed2.min.js",
