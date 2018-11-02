@@ -1,16 +1,12 @@
 /*
 **
-**  jquery.kyco.googleplusfeed
-**  ==========================
+**  jquery.kyco.googleplusfeed2
+**  ===========================
 **
 **  Version 2.1.4
 **
 **  Brought to you by
-**  https://www.kycosoftware.com/
-**
-**  Copyright 2015 Cornelius Weidmann
-**
-**  Distributed under the GPL
+**  https://kyco.io
 **
 */
 
