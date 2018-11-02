@@ -1,5 +1,5 @@
-kyco Google+ Feed 2
-===================
+Google+ Feed 2
+==============
 #### Version: 2.1.4
 
 The best Google+ feed widget out there!
