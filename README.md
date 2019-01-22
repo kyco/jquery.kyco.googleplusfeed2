@@ -1,3 +1,7 @@
+## Official statement from Google: "On March 7, 2019, all Google+ APIs and Google+ Sign-in will be shut down completely. This will be a progressive shutdown beginning in late January, with calls to these APIs starting to intermittently fail as early as January 28, 2019."
+
+Hence, this plugin no longer works... it is now officially a dinosaur.
+
 Google+ Feed 2
 ==============
 #### Version: 2.1.4
